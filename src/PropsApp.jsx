@@ -1,3 +1,5 @@
+import PropTypes, { string } from "prop-types";
+
 // export const PropsApp = props => {
 //     return (
 //         <>
@@ -7,7 +9,11 @@
 //     );
 // }
 
-export const PropsApp = ({ title = 'Texto por defecto', subtitle, subtitle2 }) => {
+export const PropsApp = ({ title = 'Texto por defecto', subtitle, subtitle2, requiredTitle }) => {
+    // if (!requiredTitle) {
+    //     throw new Error('El titulo no existe y es requerido!');
+    // }
+
     return (
         <>
             <hr />
@@ -18,6 +24,12 @@ export const PropsApp = ({ title = 'Texto por defecto', subtitle, subtitle2 }) =
 
             {/*Aqui concatena el string.  subtitle2="123"*/}
             <p>{ subtitle2 + 100 }</p>
+
+            <p>titulo2: { requiredTitle }</p>
         </>
     );
+}
+
+PropsApp.propTypes = {
+    requiredTitle: PropTypes.string.isRequired,
 }
