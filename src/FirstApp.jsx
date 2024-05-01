@@ -22,8 +22,21 @@
 export const FirstApp = () => {
     return (
         <>
-            <h1>First App</h1>
+            <h1>First App</h1> 
+            <p>{ getUser().name }</p>
+            <p>{ getUser().lastName }</p>
+            
+            {/*Convierto mi JS Object en un JSON y asi puedo renderizarlo en el DOM*/}
+            {/*Ojo, debe ser una funcion síncrona, una funcion asíncrona es un Objeto y puede mostrar error.*/}
+            <code>{ JSON.stringify(getUser()) }</code>
             <p>Soy un subtitulo</p>
         </>
     );
+}
+
+const getUser = () => {
+    return {
+        name: 'Jose',
+        lastName: 'Useche'
+    };
 }
